@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Password Generator</title>
+    <script>
+      function generatePassword() {
+        var letters = "abcdefghijklmnopqrstuvwxyz";
+        var numbers = "0123456789";
+        var specials = "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+        var password = "";
+        
+        // Generate 5 random letters
+        for (var i = 0; i < 5; i++) {
+          password += letters.charAt(Math.floor(Math.random() * letters.length));
+        }
+        
+        // Generate 5 random numbers
+        for (var i = 0; i < 5; i++) {
+          password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+        }
+        
+        // Generate 5 random special characters
+        for (var i = 0; i < 5; i++) {
+          password += specials.charAt(Math.floor(Math.random() * specials.length));
+        }
+        
+        // Generate additional characters until password is over 20 characters long
+        while (password.length < 21) {
+          password += letters.charAt(Math.floor(Math.random() * letters.length));
+        }
+        
+        // Display the password
+        document.getElementById("password").value = password;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Random Password Generator</h1>
+    <p>Click the button to generate a random password that contains 5 letters, 5 numbers, 5 special characters and is over 20 characters long.</p>
+    <input type="text" id="password" size="30"><br><br>
+    <button onclick="generatePassword()">Generate Password</button>
+  </body>
+</html>
